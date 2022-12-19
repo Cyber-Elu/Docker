@@ -40,18 +40,25 @@ curl localhost:80
 
 # Question 6
 
-On créer un dockerfile, on précise l'image nginx:latest puis on execute grace a la commande 
+On créer un dockerfile, on précise l'image nginx:latest
+
+```bash
+FROM nginx:latest
+
+COPY ./index.html /usr/share/nginx/html/index.html
+```
+
+puis on execute grace a la commande
 
 ```bash
 docker build -t test .
 ```
 
-Pour la demarrer 
+Pour lancer le container
 
 ```bash
 docker run -d test
 ```
-
 La méthode via volume ou cp permet la mise en place d'image qui ne peut pas etre versionné
 
 La méthode via dockerfile permet de mettre en place l'images dans un premier temps et ensuite de pouvoir l'executer simplement sans plus de mise en place
