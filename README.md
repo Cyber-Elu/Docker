@@ -5,7 +5,7 @@
 Lancement du container nginx avec l'option de volume qui pointe sur le fichier index.html créé :
 
 ```bash
-docker run --name Test2 -v /home/elu/Git/DevOps/TP_Docker/Web:/usr/share/nginx/html -d -p 80:80 nginx
+docker run --name Test -v /home/elu/Git/DevOps/TP_Docker/Web:/usr/share/nginx/html -d -p 80:80 nginx
 ```
 
 On test si le container renvoi bien le fichier
