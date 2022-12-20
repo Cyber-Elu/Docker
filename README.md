@@ -59,6 +59,27 @@ Pour lancer le container
 ```bash
 docker run -d test
 ```
+
 La méthode via volume ou cp permet la mise en place d'image qui ne peut pas etre versionné
 
 La méthode via dockerfile permet de mettre en place l'images dans un premier temps et ensuite de pouvoir l'executer simplement sans plus de mise en place
+
+Pour installer mysql et phpmyadmin on utilise la commande 
+
+```bash
+sudo docker pull mysql:5.7
+sudo docker pull phpmyadmin
+```
+
+Ensuite, pour éxecuter un container avec chaune des applications on entre les commandes suivantes :
+
+```bash
+sudo docker run --name mysql -e MYSQL_ROOT_PASSWORD=my-secret-pw -d mysql:tag
+sudo docker run --name phpmyadmin -d --link mysql:db -p 8080:80 phpmyadmin
+```
+
+On vérifie que les deux images fonctionnes 
+
+```bash
+sudo docker ps
+```
